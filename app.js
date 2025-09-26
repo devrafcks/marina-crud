@@ -1,9 +1,8 @@
-// Dependências
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
-require('./db'); // Conexão com MongoDB
+require('./db'); 
 
 // Rotas
 const authRoutes = require('./routes/authRoutes');
@@ -24,17 +23,18 @@ app.use(cookieParser());
 // /login, /logout, /register
 app.use('/', authRoutes);
 
-// --- Redireciona raiz para login ---
+// Rota raiz
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
 
-// --- Rotas protegidas ---
-// Barcos e tripulantes só acessíveis se estiver logado
+// Rotas protegidas
+
+// Barcos e tripulantes
 app.use('/barcos', authMiddleware, barcoRoutes);
 app.use('/tripulantes', authMiddleware, tripulanteRoutes);
 
-// --- Dashboard/Admin ---
+// Dashboard
 app.get('/admin', authMiddleware, async (req, res) => {
   const Barco = require('./models/Barco');
   const Tripulante = require('./models/Tripulante');
@@ -49,7 +49,7 @@ app.get('/admin', authMiddleware, async (req, res) => {
   }
 });
 
-// --- Rota de saúde ---
+// Health 
 app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'UP',
@@ -58,6 +58,6 @@ app.get('/health', (req, res) => {
   });
 });
 
-// --- Inicializa servidor ---
+// Inicia servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));

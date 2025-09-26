@@ -1,5 +1,4 @@
 <aside id="sidebar" class="bg-[#3a1269] text-white h-screen flex flex-col transition-all duration-300 w-64">
-  <!-- Cabeçalho -->
   <div class="flex items-center justify-between px-4 py-5 border-b border-purple-700">
     <h2 id="sidebarTitle" class="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 drop-shadow-xl tracking-wide">
       Marina
@@ -9,7 +8,6 @@
     </button>
   </div>
 
-  <!-- Navegação -->
   <nav class="flex-1 flex flex-col mt-6 space-y-2">
     <a href="/admin" class="flex items-center px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200">
       <div class="flex-none w-12 h-12 flex items-center justify-center">
@@ -52,15 +50,12 @@
     sidebar.classList.toggle('w-64');
     sidebar.classList.toggle('w-20');
 
-    // Oculta o texto quando colapsa
     document.querySelectorAll('.sidebarText').forEach(el => {
       el.classList.toggle('hidden');
     });
 
-    // Oculta o título quando colapsa
     sidebarTitle.classList.toggle('hidden');
 
-    // Troca o ícone do toggle
     const icon = toggleBtn.querySelector('i');
     icon.dataset.feather = sidebar.classList.contains('w-64') ? 'chevron-left' : 'chevron-right';
     feather.replace();

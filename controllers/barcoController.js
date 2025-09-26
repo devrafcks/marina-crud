@@ -1,12 +1,11 @@
 const Barco = require('../models/Barco');
 
-// Listar todos os barcos (para admin já puxado na rota /admin)
+// Listar
 exports.listar = async (req, res) => {
   const barcos = await Barco.find();
   res.render('admin', { barcos });
 };
 
-// Formulário de criação
 exports.novoForm = (req, res) => {
   res.render('barcos/novo');
 };

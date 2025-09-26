@@ -1,13 +1,12 @@
 const Tripulante = require('../models/Tripulante');
 const Barco = require('../models/Barco');
 
-// Formulário de criação
 exports.novoForm = async (req, res) => {
   const barcos = await Barco.find();
   res.render('tripulantes/novo', { barcos });
 };
 
-// Criar tripulante
+// Criar 
 exports.criar = async (req, res) => {
   try {
     await Tripulante.create(req.body);
@@ -18,7 +17,6 @@ exports.criar = async (req, res) => {
   }
 };
 
-// Formulário de edição
 exports.editarForm = async (req, res) => {
   try {
     const tripulante = await Tripulante.findById(req.params.id);
@@ -30,7 +28,7 @@ exports.editarForm = async (req, res) => {
   }
 };
 
-// Atualizar tripulante
+// Atualizar 
 exports.atualizar = async (req, res) => {
   try {
     await Tripulante.findByIdAndUpdate(req.params.id, req.body);
@@ -41,7 +39,7 @@ exports.atualizar = async (req, res) => {
   }
 };
 
-// Deletar tripulante
+// Deletar 
 exports.deletar = async (req, res) => {
   try {
     await Tripulante.findByIdAndDelete(req.params.id);

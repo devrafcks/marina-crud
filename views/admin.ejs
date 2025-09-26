@@ -2,21 +2,18 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Admin - Marina</title>
+  <title>Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
 </head>
 <body class="flex bg-[#1a0e2b] text-white min-h-screen">
 
-  <!-- Sidebar -->
-<%- include('partials/sidebar') %>
-
-  <!-- Conteúdo principal -->
+    <%- include('partials/sidebar') %>
+>
   <main class="flex-1 p-8 overflow-auto">
 
     <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
 
-    <!-- Tabela de Barcos -->
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2">Barcos</h2>
       <table class="min-w-full rounded-lg overflow-hidden border border-purple-700">
@@ -56,7 +53,6 @@
       </table>
     </section>
 
-    <!-- Tabela de Tripulantes -->
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2">Tripulantes</h2>
       <table class="min-w-full rounded-lg overflow-hidden border border-purple-700">
