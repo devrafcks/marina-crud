@@ -1,0 +1,68 @@
+<aside id="sidebar" class="bg-[#3a1269] text-white h-screen flex flex-col transition-all duration-300 w-64">
+  <!-- Cabeçalho -->
+  <div class="flex items-center justify-between px-4 py-5 border-b border-purple-700">
+    <h2 id="sidebarTitle" class="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 drop-shadow-xl tracking-wide">
+      Marina
+    </h2>
+    <button id="toggleSidebar" class="p-2 rounded hover:bg-purple-700 transition-colors duration-200">
+      <i data-feather="chevron-left" class="w-6 h-6"></i>
+    </button>
+  </div>
+
+  <!-- Navegação -->
+  <nav class="flex-1 flex flex-col mt-6 space-y-2">
+    <a href="/admin" class="flex items-center px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200">
+      <div class="flex-none w-12 h-12 flex items-center justify-center">
+        <i data-feather="home" class="w-6 h-6 text-purple-300"></i>
+      </div>
+      <span class="ml-3 font-semibold text-white sidebarText">Dashboard</span>
+    </a>
+
+    <a href="/barcos/novo" class="flex items-center px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200">
+      <div class="flex-none w-12 h-12 flex items-center justify-center">
+        <i data-feather="plus-circle" class="w-6 h-6 text-purple-300"></i>
+      </div>
+      <span class="ml-3 font-semibold text-white sidebarText">Criar Barco</span>
+    </a>
+
+    <a href="/tripulantes/novo" class="flex items-center px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200">
+      <div class="flex-none w-12 h-12 flex items-center justify-center">
+        <i data-feather="user-plus" class="w-6 h-6 text-purple-300"></i>
+      </div>
+      <span class="ml-3 font-semibold text-white sidebarText">Criar Tripulante</span>
+    </a>
+
+    <a href="/logout" class="flex items-center px-3 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 mt-auto">
+      <div class="flex-none w-12 h-12 flex items-center justify-center">
+        <i data-feather="log-out" class="w-6 h-6 text-red-300"></i>
+      </div>
+      <span class="ml-3 font-semibold text-white sidebarText">Sair</span>
+    </a>
+  </nav>
+</aside>
+
+<script>
+  feather.replace();
+
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('toggleSidebar');
+  const sidebarTitle = document.getElementById('sidebarTitle');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('w-64');
+    sidebar.classList.toggle('w-20');
+
+    // Oculta o texto quando colapsa
+    document.querySelectorAll('.sidebarText').forEach(el => {
+      el.classList.toggle('hidden');
+    });
+
+    // Oculta o título quando colapsa
+    sidebarTitle.classList.toggle('hidden');
+
+    // Troca o ícone do toggle
+    const icon = toggleBtn.querySelector('i');
+    icon.dataset.feather = sidebar.classList.contains('w-64') ? 'chevron-left' : 'chevron-right';
+    feather.replace();
+  });
+</script>

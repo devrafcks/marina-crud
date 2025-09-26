@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Barco</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
+
+</head>
+<body class="flex bg-[#1a0e2b] text-white min-h-screen">
+
+  <!-- Sidebar -->
+  <%- include('../partials/sidebar') %>
+
+  <main class="flex-1 p-8">
+    <h1 class="text-2xl font-bold mb-4">Editar Barco</h1>
+    <form action="/barcos/<%= barco._id %>/editar" method="POST" class="space-y-4 bg-[#3a1269] p-6 rounded-xl w-96">
+      <input type="text" name="nome" value="<%= barco.nome %>" class="w-full p-2 rounded bg-[#2a1b4f] border border-purple-700 focus:outline-none">
+      <input type="text" name="tipo" value="<%= barco.tipo %>" class="w-full p-2 rounded bg-[#2a1b4f] border border-purple-700 focus:outline-none">
+      <input type="number" name="capacidade" value="<%= barco.capacidade %>" class="w-full p-2 rounded bg-[#2a1b4f] border border-purple-700 focus:outline-none">
+      <select name="status" class="w-full p-2 rounded bg-[#2a1b4f] border border-purple-700 focus:outline-none">
+        <option <%= barco.status === 'Atracado' ? 'selected' : '' %>>Atracado</option>
+        <option <%= barco.status === 'Navegando' ? 'selected' : '' %>>Navegando</option>
+        <option <%= barco.status === 'Em manutenção' ? 'selected' : '' %>>Em manutenção</option>
+      </select>
+      <button type="submit" class="bg-purple-600 p-2 rounded w-full hover:bg-purple-500">Atualizar</button>
+    </form>
+  </main>
+</body>
+</html>

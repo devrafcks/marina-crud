@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Usuário - Marina</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#1a0e2b] flex items-center justify-center min-h-screen">
+
+  <div class="text-center mb-6 mr-10">
+    <h1 class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">Bem-vindo à Marina</h1>
+    <p class="text-purple-200 mt-2">Crie sua conta e comece a gerenciar barcos e tripulantes</p>
+  </div>
+
+  <form action="/register" method="POST" class="bg-[#3a1269] p-8 rounded-xl w-96 shadow-lg space-y-4">
+    
+    <h2 class="text-2xl font-bold text-white text-center">Registrar</h2>
+    
+    <% if(error){ %>
+      <p class="text-red-400 text-center"><%= error %></p>
+    <% } %>
+
+    <input type="text" name="username" placeholder="Usuário" class="w-full p-3 rounded-lg bg-[#2a1b4f] text-white border border-[#4a2f8c] focus:outline-none">
+    <input type="password" name="password" placeholder="Senha" class="w-full p-3 rounded-lg bg-[#2a1b4f] text-white border border-[#4a2f8c] focus:outline-none">
+    
+    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white p-3 rounded-lg font-bold">Criar Conta</button>
+
+    <!-- Link para login -->
+    <p class="text-center text-purple-300 mt-2">
+      Já tem conta? <a href="/login" class="underline hover:text-white">Login</a>
+    </p>
+  </form>
+
+</body>
+</html>

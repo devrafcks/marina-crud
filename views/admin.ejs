@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Marina</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
+</head>
+<body class="flex bg-[#1a0e2b] text-white min-h-screen">
+
+  <!-- Sidebar -->
+<%- include('partials/sidebar') %>
+
+  <!-- Conteúdo principal -->
+  <main class="flex-1 p-8 overflow-auto">
+
+    <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+
+    <!-- Tabela de Barcos -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2">Barcos</h2>
+      <table class="min-w-full rounded-lg overflow-hidden border border-purple-700">
+        <thead class="bg-purple-800 text-left">
+          <tr>
+            <th class="px-4 py-2">Nome</th>
+            <th class="px-4 py-2">Tipo</th>
+            <th class="px-4 py-2">Capacidade</th>
+            <th class="px-4 py-2">Status</th>
+            <th class="px-4 py-2 text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% barcos.forEach(barco => { %>
+            <tr class="border-t border-purple-700 hover:bg-purple-900 transition duration-200">
+              <td class="px-4 py-2"><%= barco.nome %></td>
+              <td class="px-4 py-2"><%= barco.tipo %></td>
+              <td class="px-4 py-2"><%= barco.capacidade %></td>
+              <td class="px-4 py-2">
+                <span class="<%= barco.status === 'Atracado' ? 'bg-green-600' : barco.status === 'Em manutenção' ? 'bg-yellow-500' : barco.status === 'Navegando' ? 'bg-red-500' : 'bg-gray-500' %> px-2 py-1 rounded">
+                  <%= barco.status %>
+                </span>
+              </td>
+              <td class="px-4 py-2 text-center flex justify-center gap-2">
+                <a href="/barcos/<%= barco._id %>/editar" title="Editar">
+                  <i data-feather="edit" class="text-yellow-400"></i>
+                </a>
+                <form action="/barcos/<%= barco._id %>/deletar" method="POST" class="inline">
+                  <button type="submit" title="Deletar">
+                    <i data-feather="trash-2" class="text-red-500"></i>
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Tabela de Tripulantes -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2">Tripulantes</h2>
+      <table class="min-w-full rounded-lg overflow-hidden border border-purple-700">
+        <thead class="bg-purple-800 text-left">
+          <tr>
+            <th class="px-4 py-2">Nome</th>
+            <th class="px-4 py-2">Função</th>
+            <th class="px-4 py-2">Barco</th>
+            <th class="px-4 py-2 text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% tripulantes.forEach(trip => { %>
+            <tr class="border-t border-purple-700 hover:bg-purple-900 transition duration-200">
+              <td class="px-4 py-2"><%= trip.nome %></td>
+              <td class="px-4 py-2"><%= trip.funcao %></td>
+              <td class="px-4 py-2"><%= trip.barcoId ? trip.barcoId.nome : 'Nenhum' %></td>
+              <td class="px-4 py-2 text-center flex justify-center gap-2">
+                <a href="/tripulantes/<%= trip._id %>/editar" title="Editar">
+                  <i data-feather="edit" class="text-yellow-400"></i>
+                </a>
+                <form action="/tripulantes/<%= trip._id %>/deletar" method="POST" class="inline">
+                  <button type="submit" title="Deletar">
+                    <i data-feather="trash-2" class="text-red-500"></i>
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <script>
+    feather.replace();
+  </script>
+
+</body>
+</html>
