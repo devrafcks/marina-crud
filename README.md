@@ -1,6 +1,10 @@
 # Marina - Sistema de Gestão de Barcos e Tripulantes
 
 Marina é um sistema web para gerenciamento de barcos e tripulantes, com login, registro de usuários e painel administrativo. O sistema foi desenvolvido com Node.js, Express, MongoDB e EJS, utilizando TailwindCSS para o design.
+## Acesso
+
+Acesse a aplicação em: [https://marina-crud.onrender.com/](https://marina-crud.onrender.com/)
+
 <img width="1908" height="833" alt="image" src="https://github.com/user-attachments/assets/625aba25-bad0-447e-bfdd-2147a07cfc24" />
 
 <img width="1890" height="860" alt="image" src="https://github.com/user-attachments/assets/ece04178-eb18-46b9-9800-7cb00285d584" />
