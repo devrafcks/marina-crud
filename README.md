@@ -4,7 +4,7 @@ Marina é um sistema web para gerenciamento de barcos e tripulantes, com login, 
 
 --- 
 
-Acesse a aplicação em: https://marina-sw.vercel.app
+Acesse a aplicação em: [https://marina-sw.vercel.app](https://marina-crud.vercel.app/)
 
 <img width="1650" height="802" alt="image" src="https://github.com/user-attachments/assets/c8a3e7ec-18db-402c-a3d4-502348e08ffa" />
 <img width="1437" height="764" alt="image" src="https://github.com/user-attachments/assets/1e931401-2f9c-4c67-a4d5-e26d4c307067" />
