@@ -6,11 +6,12 @@ Marina é um sistema web para gerenciamento de barcos e tripulantes, com login, 
 
 Acesse a aplicação em: https://marina-sw.vercel.app
 
-<img width="1908" height="833" alt="image" src="https://github.com/user-attachments/assets/625aba25-bad0-447e-bfdd-2147a07cfc24" />
+<img width="1650" height="802" alt="image" src="https://github.com/user-attachments/assets/c8a3e7ec-18db-402c-a3d4-502348e08ffa" />
+<img width="1437" height="764" alt="image" src="https://github.com/user-attachments/assets/1e931401-2f9c-4c67-a4d5-e26d4c307067" />
+<img width="1897" height="855" alt="image" src="https://github.com/user-attachments/assets/c0656ead-e395-4744-b3e5-020ee8a56b1d" />
+<img width="1663" height="763" alt="image" src="https://github.com/user-attachments/assets/871d4e66-6b49-464f-9c3c-ab6581da1e35" />
+<img width="1606" height="717" alt="image" src="https://github.com/user-attachments/assets/2e503e06-b82e-454c-8648-e345a007424e" />
 
-<img width="1890" height="860" alt="image" src="https://github.com/user-attachments/assets/ece04178-eb18-46b9-9800-7cb00285d584" />
-<img width="641" height="582" alt="image" src="https://github.com/user-attachments/assets/fee4c6ec-41d2-4102-999a-85a0c0a7fa38" />
-<img width="899" height="608" alt="image" src="https://github.com/user-attachments/assets/1e13ef4a-826e-4d5a-b8e2-2a7d78e13778" />
 
 ---
 
