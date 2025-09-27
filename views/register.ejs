@@ -4,32 +4,56 @@
   <meta charset="UTF-8">
   <title>Registrar</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
 </head>
-<body class="bg-[#1a0e2b] flex items-center justify-center min-h-screen">
+<body class="min-h-screen flex items-center justify-center bg-[#1a0e2b]">
 
-  <div class="text-center mb-6 mr-10">
-    <h1 class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">Bem-vindo à Marina</h1>
-    <p class="text-purple-200 mt-2">Crie sua conta e comece a gerenciar barcos e tripulantes</p>
+  <div class="flex flex-col md:flex-row rounded-3xl shadow-xl overflow-hidden max-w-5xl w-full h-[80vh]">
+
+    <div class="md:w-1/2 p-12 flex flex-col justify-center bg-gradient-to-b from-[#2a1b4f] to-[#1a0e2b] text-white space-y-6">
+      
+      <h1 class="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 drop-shadow-xl">
+        Marina
+      </h1>
+
+      <h2 class="text-xl text-gray-300 font-light">
+        Gestão de Barcos e Tripulantes
+      </h2>
+
+      <p class="text-gray-300 mt-4">
+        Crie sua conta e comece a gerenciar barcos e tripulantes com facilidade e segurança.
+      </p>
+
+      <div class="flex mt-6 gap-4">
+        <i data-feather="anchor" class="w-6 h-6 text-purple-300"></i>
+        <i data-feather="users" class="w-6 h-6 text-purple-300"></i>
+        <i data-feather="navigation" class="w-6 h-6 text-purple-300"></i>
+      </div>
+
+    </div>
+
+    <div class="md:w-1/2 p-12 flex flex-col justify-center bg-[#1a0e2b]">
+      <h2 class="text-2xl font-bold mb-6 text-center text-white">Registrar</h2>
+
+      <% if(error){ %>
+        <p class="text-red-500 text-center mb-4"><%= error %></p>
+      <% } %>
+
+      <form action="/register" method="POST" class="space-y-4">
+        <input type="text" name="username" placeholder="Usuário" class="w-full p-4 rounded-xl border border-gray-700 bg-[#2a1b4f] text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <input type="password" name="password" placeholder="Senha" class="w-full p-4 rounded-xl border border-gray-700 bg-[#2a1b4f] text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white p-4 rounded-xl font-bold transition-colors">Criar Conta</button>
+      </form>
+
+      <p class="text-center text-gray-400 mt-4">
+        Já tem conta? <a href="/login" class="text-purple-500 hover:underline">Login</a>
+      </p>
+    </div>
+
   </div>
 
-  <form action="/register" method="POST" class="bg-[#3a1269] p-8 rounded-xl w-96 shadow-lg space-y-4">
-    
-    <h2 class="text-2xl font-bold text-white text-center">Registrar</h2>
-    
-    <% if(error){ %>
-      <p class="text-red-400 text-center"><%= error %></p>
-    <% } %>
-
-    <input type="text" name="username" placeholder="Usuário" class="w-full p-3 rounded-lg bg-[#2a1b4f] text-white border border-[#4a2f8c] focus:outline-none">
-    <input type="password" name="password" placeholder="Senha" class="w-full p-3 rounded-lg bg-[#2a1b4f] text-white border border-[#4a2f8c] focus:outline-none">
-    
-    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white p-3 rounded-lg font-bold">Criar Conta</button>
-
-    <!-- Link para login -->
-    <p class="text-center text-purple-300 mt-2">
-      Já tem conta? <a href="/login" class="underline hover:text-white">Login</a>
-    </p>
-  </form>
-
+  <script>
+    feather.replace();
+  </script>
 </body>
 </html>

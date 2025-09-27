@@ -8,35 +8,59 @@
 </head>
 <body class="flex bg-[#1a0e2b] text-white min-h-screen">
 
-    <%- include('partials/sidebar') %>
+  <%- include('partials/sidebar') %>
+
   <main class="flex-1 p-8 overflow-auto">
 
     <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
 
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">Barcos</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+      <div class="bg-[#2a1b4f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
+        <p class="text-gray-400 font-medium">Total de Barcos</p>
+        <h2 class="text-3xl font-bold"><%= barcos.length %></h2>
+      </div>
+      <div class="bg-[#2a1b4f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
+        <p class="text-gray-400 font-medium">Total de Tripulantes</p>
+        <h2 class="text-3xl font-bold"><%= tripulantes.length %></h2>
+      </div>
+      <div class="bg-[#2a1b4f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
+        <p class="text-gray-400 font-medium">Navegando</p>
+        <h2 class="text-3xl font-bold"><%= barcos.filter(b => b.status === 'Navegando').length %></h2>
+      </div>
+      <div class="bg-[#2a1b4f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
+        <p class="text-gray-400 font-medium">Atracado</p>
+        <h2 class="text-3xl font-bold"><%= barcos.filter(b => b.status === 'Atracado').length %></h2>
+      </div>
+      <div class="bg-[#2a1b4f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
+        <p class="text-gray-400 font-medium">Em Manutenção</p>
+        <h2 class="text-3xl font-bold"><%= barcos.filter(b => b.status === 'Em manutenção').length %></h2>
+      </div>
+    </div>
+
+    <section class="mb-10 bg-[#2a1b4f] rounded-xl shadow-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Barcos</h2>
       <table class="min-w-full rounded-lg overflow-hidden border border-purple-700">
         <thead class="bg-purple-800 text-left">
           <tr>
-            <th class="px-4 py-2">Nome</th>
-            <th class="px-4 py-2">Tipo</th>
-            <th class="px-4 py-2">Capacidade</th>
-            <th class="px-4 py-2">Status</th>
-            <th class="px-4 py-2 text-center">Ações</th>
+            <th class="px-6 py-3">Nome</th>
+            <th class="px-6 py-3">Tipo</th>
+            <th class="px-6 py-3">Capacidade</th>
+            <th class="px-6 py-3">Status</th>
+            <th class="px-6 py-3 text-center">Ações</th>
           </tr>
         </thead>
         <tbody>
           <% barcos.forEach(barco => { %>
             <tr class="border-t border-purple-700 hover:bg-purple-900 transition duration-200">
-              <td class="px-4 py-2"><%= barco.nome %></td>
-              <td class="px-4 py-2"><%= barco.tipo %></td>
-              <td class="px-4 py-2"><%= barco.capacidade %></td>
-              <td class="px-4 py-2">
+              <td class="px-6 py-3"><%= barco.nome %></td>
+              <td class="px-6 py-3"><%= barco.tipo %></td>
+              <td class="px-6 py-3"><%= barco.capacidade %></td>
+              <td class="px-6 py-3">
                 <span class="<%= barco.status === 'Atracado' ? 'bg-green-600' : barco.status === 'Em manutenção' ? 'bg-yellow-500' : barco.status === 'Navegando' ? 'bg-red-500' : 'bg-gray-500' %> px-2 py-1 rounded">
                   <%= barco.status %>
                 </span>
               </td>
-              <td class="px-4 py-2 text-center flex justify-center gap-2">
+              <td class="px-6 py-3 text-center flex justify-center gap-2">
                 <a href="/barcos/<%= barco._id %>/editar" title="Editar">
                   <i data-feather="edit" class="text-yellow-400"></i>
                 </a>
@@ -52,24 +76,24 @@
       </table>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">Tripulantes</h2>
+    <section class="mb-10 bg-[#2a1b4f] rounded-xl shadow-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Tripulantes</h2>
       <table class="min-w-full rounded-lg overflow-hidden border border-purple-700">
         <thead class="bg-purple-800 text-left">
           <tr>
-            <th class="px-4 py-2">Nome</th>
-            <th class="px-4 py-2">Função</th>
-            <th class="px-4 py-2">Barco</th>
-            <th class="px-4 py-2 text-center">Ações</th>
+            <th class="px-6 py-3">Nome</th>
+            <th class="px-6 py-3">Função</th>
+            <th class="px-6 py-3">Barco</th>
+            <th class="px-6 py-3 text-center">Ações</th>
           </tr>
         </thead>
         <tbody>
           <% tripulantes.forEach(trip => { %>
             <tr class="border-t border-purple-700 hover:bg-purple-900 transition duration-200">
-              <td class="px-4 py-2"><%= trip.nome %></td>
-              <td class="px-4 py-2"><%= trip.funcao %></td>
-              <td class="px-4 py-2"><%= trip.barcoId ? trip.barcoId.nome : 'Nenhum' %></td>
-              <td class="px-4 py-2 text-center flex justify-center gap-2">
+              <td class="px-6 py-3"><%= trip.nome %></td>
+              <td class="px-6 py-3"><%= trip.funcao %></td>
+              <td class="px-6 py-3"><%= trip.barcoId ? trip.barcoId.nome : 'Nenhum' %></td>
+              <td class="px-6 py-3 text-center flex justify-center gap-2">
                 <a href="/tripulantes/<%= trip._id %>/editar" title="Editar">
                   <i data-feather="edit" class="text-yellow-400"></i>
                 </a>

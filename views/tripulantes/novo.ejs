@@ -5,24 +5,36 @@
   <title>Criar Tripulante</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
-
 </head>
 <body class="flex bg-[#1a0e2b] text-white min-h-screen">
 
   <%- include('../partials/sidebar') %>
 
-  <main class="flex-1 p-8">
-    <h1 class="text-2xl font-bold mb-4">Criar Tripulante</h1>
-    <form action="/tripulantes/novo" method="POST" class="space-y-4 bg-[#3a1269] p-6 rounded-xl w-96">
-      <input type="text" name="nome" placeholder="Nome" class="w-full p-2 rounded bg-[#2a1b4f] border border-purple-700 focus:outline-none">
-      <input type="text" name="funcao" placeholder="Função" class="w-full p-2 rounded bg-[#2a1b4f] border border-purple-700 focus:outline-none">
-      <select name="barcoId" class="w-full p-2 rounded bg-[#2a1b4f] border border-purple-700 focus:outline-none">
-        <% barcos.forEach(barco => { %>
-          <option value="<%= barco._id %>"><%= barco.nome %></option>
-        <% }) %>
-      </select>
-      <button type="submit" class="bg-purple-600 p-2 rounded w-full hover:bg-purple-500">Criar</button>
-    </form>
+  <main class="flex-1 flex items-center justify-center p-8">
+    <div class="w-full max-w-md bg-[#2a1b4f] rounded-3xl shadow-2xl p-8 space-y-6">
+
+      <h1 class="text-3xl font-extrabold text-center text-white mb-4">Criar Tripulante</h1>
+
+      <form action="/tripulantes/novo" method="POST" class="space-y-4">
+        <input type="text" name="nome" placeholder="Nome" class="w-full p-3 rounded-xl bg-[#1a0e2b] border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <input type="text" name="funcao" placeholder="Função" class="w-full p-3 rounded-xl bg-[#1a0e2b] border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        
+        <select name="barcoId" class="w-full p-3 rounded-xl bg-[#1a0e2b] border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="">Selecione um barco</option>
+          <% barcos.forEach(barco => { %>
+            <option value="<%= barco._id %>"><%= barco.nome %></option>
+          <% }) %>
+        </select>
+
+        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white p-3 rounded-xl font-bold transition-colors">
+          Criar
+        </button>
+      </form>
+    </div>
   </main>
+
+  <script>
+    feather.replace();
+  </script>
 </body>
 </html>

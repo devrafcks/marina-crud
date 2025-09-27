@@ -1,4 +1,4 @@
-<aside id="sidebar" class="bg-[#3a1269] text-white h-screen flex flex-col transition-all duration-300 w-64">
+<aside id="sidebar" class="bg-[#3a1269] text-white h-screen flex flex-col transition-all duration-300 w-64 fixed top-0 left-0 z-50">
   <div class="flex items-center justify-between px-4 py-5 border-b border-purple-700">
     <h2 id="sidebarTitle" class="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 drop-shadow-xl tracking-wide">
       Marina
@@ -39,12 +39,17 @@
   </nav>
 </aside>
 
+<main class="ml-64 transition-all duration-300 p-8 overflow-auto">
+  <!-- Seu conteúdo principal aqui -->
+</main>
+
 <script>
   feather.replace();
 
   const sidebar = document.getElementById('sidebar');
   const toggleBtn = document.getElementById('toggleSidebar');
   const sidebarTitle = document.getElementById('sidebarTitle');
+  const main = document.querySelector('main');
 
   toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('w-64');
@@ -59,5 +64,12 @@
     const icon = toggleBtn.querySelector('i');
     icon.dataset.feather = sidebar.classList.contains('w-64') ? 'chevron-left' : 'chevron-right';
     feather.replace();
+
+    // Ajusta a margem do main conforme a largura da sidebar
+    if(sidebar.classList.contains('w-64')){
+      main.classList.replace('ml-20', 'ml-64');
+    } else {
+      main.classList.replace('ml-64', 'ml-20');
+    }
   });
 </script>
