@@ -10,7 +10,6 @@ const barcoRoutes = require('./routes/barcoRoutes');
 const tripulanteRoutes = require('./routes/tripulanteRoutes');
 const authMiddleware = require('./middleware/authMiddleware');
 
-// Inicializa app
 const app = express();
 
 // Configurações
@@ -19,7 +18,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// --- Rotas públicas ---
+// Rotas públicas
 // /login, /logout, /register
 app.use('/', authRoutes);
 
@@ -29,7 +28,6 @@ app.get('/', (req, res) => {
 });
 
 // Rotas protegidas
-
 // Barcos e tripulantes
 app.use('/barcos', authMiddleware, barcoRoutes);
 app.use('/tripulantes', authMiddleware, tripulanteRoutes);
